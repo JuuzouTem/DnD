@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="dm-panel">
+        <h2>🛡️ DM OYUN YÖNETİMİ</h2>
+        <div class="dm-controls">
+            <input type="text" id="target-action" placeholder="Eylem Adı">
+            <input type="number" id="target-dc" placeholder="Hedef Zar (DC)">
+            <button onclick="setDMRule()">Kuralı Yayınla</button>
+            <button onclick="clearDMRule()" class="clear-btn">Sıfırla</button>
+            <button onclick="resetAllData()" class="reset-btn">Tüm Verileri Orijinaline Döndür</button>
+        </div>
+        <div id="active-rule" class="hidden"></div>
+    </section>
+
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Özellik veya açıklama ara..." onkeyup="filterFeatures()">
+    </div>
+
+    <section id="filters">
+        <div class="filter-group">
+            <label>Irk:</label>
+            <select id="race-filter" onchange="filterFeatures()">
+                <option value="all">Tüm Irklar</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Sınıf:</label>
+            <select id="class-filter" onchange="filterFeatures()">
+                <option value="all">Tüm Sınıflar</option>
+            </select>
+        </div>
+    </section>
+
+    <main id="features-list"></main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
